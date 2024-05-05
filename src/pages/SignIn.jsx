@@ -23,7 +23,7 @@ function SignIn() {
       <form action="">
         <div className="form">
           <InputComponent label="User ID" phone={true} />
-          <InputComponent label="Passcode" eye={true} />
+          <InputComponent label="Passcode" eye={true} key={true} />
         </div>
         <div className="password-options">
           <div className="flex" onClick={handleRemember}>
@@ -56,7 +56,6 @@ function SignIn() {
         <p style={{ textAlign: "center" }}>
           Don't have an account?{" "}
           <Link to="/signup">
-            {" "}
             <span>Sign up </span>
           </Link>
         </p>
