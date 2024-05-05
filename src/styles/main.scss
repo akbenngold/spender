@@ -1,0 +1,28 @@
+:root {
+  --black: #333333;
+  --purple-bg: #f5f5f5;
+  --purple-dark: #342d56;
+  --purple-letter: #52525c;
+  --purple: #800080;
+  --purple-btn: #bb86fc;
+  --purple-light: #e9d5ff;
+  --red-warning: #c20c0c;
+  --green-pass: #4bb161;
+  --yellow: #c28f0c;
+  --blue: #5470ff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@import "./button";
+@import "./input";
