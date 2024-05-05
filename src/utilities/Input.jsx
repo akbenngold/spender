@@ -50,7 +50,11 @@ function Input({ eye, phone, padlock, message, user }) {
       {message && (
         <IoMdMail size="2rem" color="var(--purple-dark)" style={style} />
       )}
-      <input type="text" className="input-text" />
+      {padlock ? (
+        <input type={view ? "text" : "password"} className="input-text" />
+      ) : (
+        <input type="text" className="input-text" />
+      )}
     </div>
   );
 }
