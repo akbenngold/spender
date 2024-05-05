@@ -1,0 +1,20 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  height: 100%;
+  margin-top: 10rem;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .password-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -2rem;
+  }
+}
