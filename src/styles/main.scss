@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=M+PLUS+Rounded+1c:wght@700&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 :root {
   --black: #333333;
   --purple-bg: #f5f5f5;
@@ -53,7 +54,7 @@ form {
 p,
 label {
   font-size: 1.6rem;
-  font-family: "inter", sans-serif;
+  font-family: "Open sans", "inter", sans-serif;
 }
 label {
   color: var(--purple-letter);
