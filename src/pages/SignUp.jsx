@@ -6,11 +6,20 @@ import { Link } from "react-router-dom";
 function Signup() {
   return (
     <div className="signin">
-      <h2>
+      <h2
+        style={{
+          marginTop: "-3rem",
+        }}
+      >
         Become a
         <br /> Big Spender!
       </h2>
-      <form action="">
+      <form
+        action=""
+        style={{
+          marginTop: "-3rem",
+        }}
+      >
         <div className="form">
           <InputComponent label="Full Name" user={true} />
           <InputComponent label="Phone Number" phone={true} />
