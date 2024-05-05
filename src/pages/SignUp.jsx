@@ -18,6 +18,7 @@ function Signup() {
         action=""
         style={{
           marginTop: "-3rem",
+          marginBottom: "3rem",
         }}
       >
         <div className="form">
