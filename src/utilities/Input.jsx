@@ -7,8 +7,9 @@ function Input({ eye, phone, padlock, message, user }) {
   const [view, setView] = useState(false);
   const style = {
     position: "absolute",
-    top: "1.2rem",
+    top: "1.25rem",
     left: "1rem",
+    opacity: "70%",
   };
 
   const eyeStyle = {
@@ -50,11 +51,12 @@ function Input({ eye, phone, padlock, message, user }) {
       {message && (
         <IoMdMail size="2rem" color="var(--purple-dark)" style={style} />
       )}
-      {padlock ? (
+      {padlock && (
         <input type={view ? "text" : "password"} className="input-text" />
-      ) : (
-        <input type="text" className="input-text" />
       )}
+      {user && <input type="text" className="input-text" />}
+      {phone && <input type="number" className="input-text" />}
+      {message && <input type="email" className="input-text" />}
     </div>
   );
 }
