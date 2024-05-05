@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function SignIn() {
   const [remember, setRemember] = useState(false);
+  const [view, setView] = useState(false);
 
   const handleRemember = () => {
     setRemember((remember) => {
@@ -23,7 +24,12 @@ function SignIn() {
       <form action="">
         <div className="form">
           <InputComponent label="User ID" phone={true} />
-          <InputComponent label="Passcode" eye={true} key={true} />
+          <InputComponent
+            label="Passcode"
+            eye={true}
+            padlock={true}
+            eyeLock={view}
+          />
         </div>
         <div className="password-options">
           <div className="flex" onClick={handleRemember}>

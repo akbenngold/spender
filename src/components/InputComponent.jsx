@@ -1,11 +1,17 @@
 import React from "react";
 import Input from "../utilities/Input";
 
-function InputComponent({ label, eye, phone, message, key, user }) {
+function InputComponent({ label, eye, phone, message, padlock, user }) {
   return (
     <div>
       <label htmlFor="input">{label}</label>
-      <Input eye={eye} phone={phone} message={message} key={key} user={user} />
+      <Input
+        eye={eye}
+        phone={phone}
+        message={message}
+        padlock={padlock}
+        user={user}
+      />
     </div>
   );
 }
