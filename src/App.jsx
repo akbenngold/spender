@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
@@ -11,6 +11,7 @@ import { FaChevronLeft } from "react-icons/fa6";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -18,7 +19,13 @@ function App() {
         {" "}
         {location.pathname ==
           ("/withdrawal" || "/topup" || "/spend" || "/receive") && (
-          <FaChevronLeft size="4rem" color="var(--purple)" />
+          <FaChevronLeft
+            size="4rem"
+            color="var(--purple)"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
         )}{" "}
         <h1>Spender</h1>
       </div>
