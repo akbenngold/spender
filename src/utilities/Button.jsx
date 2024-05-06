@@ -5,9 +5,9 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { PiHandWithdraw } from "react-icons/pi";
 import { IoMdAdd } from "react-icons/io";
 
-function Button({ label }) {
+function Button({ label, disabled }) {
   return (
-    <button>
+    <button disabled={disabled}>
       {label == "SPEND" && <IoIosSend size="2rem" />}
       {label == "RECEIVE" && <MdCallReceived size="2rem" />}
       {label == "LOG OUT" && <RiLogoutCircleRLine size="2rem" />}{" "}

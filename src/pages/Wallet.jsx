@@ -43,7 +43,7 @@ function Wallet() {
       {menuOpen && (
         <div className="menu">
           <div className="withdrawal">
-            <Link to="/signin">
+            <Link to="/withdrawal">
               {" "}
               <Button label="WITHDRAWAL" />
             </Link>

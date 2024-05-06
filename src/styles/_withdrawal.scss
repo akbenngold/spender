@@ -1,0 +1,35 @@
+.withdrawal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    background-color: var(--blue-light);
+    width: 16rem;
+  }
+}
+.withdraw {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  gap: 3rem;
+  button {
+    box-shadow: none;
+  }
+}
+.withdrawal-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+}
+.backdrop {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black */
+  backdrop-filter: blur(0.75rem); /* Apply blur effect */
+  z-index: 1;
+  padding: 2rem;
+}

@@ -1,6 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-import Button from "./utilities/Button";
-import Input from "./utilities/Input";
+import { Route, Routes, useLocation } from "react-router-dom";
+
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Signup from "./pages/SignUp";
@@ -8,11 +7,21 @@ import Wallet from "./pages/Wallet";
 import Withdrawal from "./pages/Withdrawal";
 import Spend from "./pages/Spend";
 import Receive from "./pages/Receive";
+import { FaChevronLeft } from "react-icons/fa6";
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
-      <h1>Spender</h1>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        {" "}
+        {location.pathname ==
+          ("/withdrawal" || "/topup" || "/spend" || "/receive") && (
+          <FaChevronLeft size="4rem" color="var(--purple)" />
+        )}{" "}
+        <h1>Spender</h1>
+      </div>
 
       <Routes>
         <Route path="/" element={<Home />} />
