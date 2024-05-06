@@ -14,7 +14,7 @@ function Wallet() {
   return (
     <div className="wallet">
       <Background />
-      {menuOpen && <div className="backdrop"></div>}
+      {menuOpen && <div className="backdrop" onClick={handleMenuClick}></div>}
       {menuOpen ? (
         <IoIosClose
           size="5rem"
