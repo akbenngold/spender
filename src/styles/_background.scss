@@ -1,0 +1,38 @@
+.background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid red;
+  z-index: -5;
+
+  .bg-purple-1,
+  .bg-purple-2,
+  .bg-white {
+    height: 19.2rem;
+    width: 27.3rem;
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+  }
+  .bg-white {
+    background-color: #faf5ff;
+    border-radius: 2.8rem;
+    z-index: -5;
+  }
+  .bg-purple-1,
+  .bg-purple-2 {
+    background-color: var(--purple-light);
+    opacity: 60%;
+    z-index: -10;
+  }
+
+  .bg-purple-1 {
+    top: -2rem;
+    right: -31rem;
+  }
+  .bg-purple-2 {
+    top: 2rem;
+    left: -3rem;
+  }
+}

@@ -12,6 +12,8 @@
   --green-pass: #4bb161;
   --yellow: #c28f0c;
   --blue: #5470ff;
+  --blue-light: #bfdbfe;
+  --red-light: #feaaaa;
 }
 
 *,
@@ -78,3 +80,6 @@ a {
 @import "./button";
 @import "./input";
 @import "./signin";
+@import "./background";
+@import "./wallet";
+@import "./menu";

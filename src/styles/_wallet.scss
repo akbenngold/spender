@@ -1,0 +1,48 @@
+.wallet {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .backdrop {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black */
+    backdrop-filter: blur(0.75rem); /* Apply blur effect */
+    z-index: 1;
+  }
+  .wallet_label {
+    margin-top: 10rem;
+    font-family: "Open sans", sans-serif;
+    font-size: 3.1rem;
+  }
+
+  .wallet_balance {
+    margin-top: -2rem;
+    font-family: "Open sans", sans-serif;
+    font-size: 5rem;
+    margin-top: 7rem;
+    margin-bottom: 15rem;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    gap: 3rem;
+    button {
+      box-shadow: none;
+    }
+
+    .receive {
+      button {
+        background-color: var(--black);
+        color: var(--purple-btn);
+      }
+    }
+  }
+}

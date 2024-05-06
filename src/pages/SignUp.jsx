@@ -36,7 +36,9 @@ function Signup() {
             justifyContent: "center",
           }}
         >
-          <Button label="SIGN UP" />
+          <Link to="/wallet">
+            <Button label="SIGN UP" />
+          </Link>
         </div>
         <p style={{ textAlign: "center" }}>
           Already have an account?{" "}

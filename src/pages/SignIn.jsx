@@ -57,7 +57,9 @@ function SignIn() {
             justifyContent: "center",
           }}
         >
-          <Button label="SIGN IN" />
+          <Link to="/wallet">
+            <Button label="SIGN IN" />
+          </Link>
         </div>
         <p style={{ textAlign: "center" }}>
           Don't have an account?{" "}
