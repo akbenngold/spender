@@ -146,8 +146,13 @@ function Spend() {
         return (
           <div className="spray">
             {" "}
-            <img src={notePick} alt="" />
-            <div className="balance">
+            <div className="img">
+              <img src={notePick} alt="" />
+            </div>
+            <div
+              className="balance"
+              style={{ position: "absolute", top: "3rem" }}
+            >
               NGN XXXX{" "}
               <div style={{ borderLeft: "1px solid black", padding: "1rem" }}>
                 <IoMdAdd />
