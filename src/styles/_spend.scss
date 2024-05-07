@@ -51,14 +51,49 @@
     padding: 20px;
     border: 1px solid #ccc;
   }
+}
 
-  .image-input {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
-    margin-right: 20px; /* Adjust spacing between inputs */
+.notes {
+  img {
+    width: 16rem;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:active {
+      scale: 0.75;
+    }
   }
+}
+.select-notes {
+  gap: 5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.balance {
+  border-radius: 2.8rem;
+  background-color: var(--purple-light);
+  width: 18rem;
+  display: flex;
+  gap: 2rem;
+  margin-left: 19rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.25px;
+  height: 4.8rem;
+}
+.spray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  .camera-input {
-    /* You can style the camera input if needed */
+  img {
+    transform: rotate(90deg);
+    scale: 1.2;
   }
 }
