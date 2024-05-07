@@ -10,7 +10,7 @@ import naira__1000 from "../assets/naira__1000.jpg";
 import naira__500 from "../assets/naira__500.jpg";
 import naira__200 from "../assets/naira__200.jpg";
 import naira__20 from "../assets/naira__20.jpg";
-import person4 from "../assets/person4.jpg";
+import { useSwipeable } from "react-swipeable";
 import { IoCloudUpload } from "react-icons/io5";
 
 import { IoCamera } from "react-icons/io5";
@@ -18,7 +18,8 @@ import { IoMdAdd } from "react-icons/io";
 
 function Spend() {
   const [step, setStep] = useState(1);
-  const [notePick, setNotePick] = useState();
+  const [notePick, setNotePick] = useState({ amount: "", url: "" });
+  const [noteNum, setNoteNum] = useState(0);
 
   const nextStep = () => {
     setStep(step + 1);
@@ -29,9 +30,11 @@ function Spend() {
   };
 
   const handleNotePick = (e) => {
-    setNotePick(e.target.src);
+    setNotePick({ amount: e.target.alt, url: e.target.src });
   };
-
+  const handlers = useSwipeable({
+    onSwiped: (eventData) => console.log("User Swiped!", eventData),
+  });
   {
     switch (step) {
       case 1:
@@ -124,13 +127,15 @@ function Spend() {
               style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
               className="notes"
             >
-              <img src={naira__20} alt="" onClick={handleNotePick} />
-              <img src={naira__50} alt="" onClick={handleNotePick} />
-              <img src={naira__100} alt="" onClick={handleNotePick} />
-              <img src={naira__200} alt="" onClick={handleNotePick} />
-              <img src={naira__500} alt="" onClick={handleNotePick} />
-              <img src={naira__1000} alt="" onClick={handleNotePick} />
+              <img src={naira__20} alt="20" onClick={handleNotePick} />
+              <img src={naira__50} alt="50" onClick={handleNotePick} />
+              <img src={naira__100} alt="100" onClick={handleNotePick} />
+              <img src={naira__200} alt="200" onClick={handleNotePick} />
+              <img src={naira__500} alt="500" onClick={handleNotePick} />
+              <img src={naira__1000} alt="1000" onClick={handleNotePick} />
             </form>
+
+            {notePick.amount && <p>You picked {notePick.amount}</p>}
             <div className="buttons">
               {" "}
               <div onClick={prevStep} className="receive">
@@ -147,11 +152,15 @@ function Spend() {
           <div className="spray">
             {" "}
             <div className="img">
-              <img src={notePick} alt="" />
+              <div {...handlers}>
+                {" "}
+                <img src={notePick.url} alt="" />{" "}
+              </div>
+              ;
             </div>
             <div
               className="balance"
-              style={{ position: "absolute", top: "3rem" }}
+              style={{ position: "absolute", top: "1rem" }}
             >
               NGN XXXX{" "}
               <div style={{ borderLeft: "1px solid black", padding: "1rem" }}>
