@@ -1,4 +1,6 @@
 .spend {
+  overflow: hidden;
+  max-width: 100%;
   button {
     box-shadow: none;
   }
@@ -97,7 +99,7 @@
     transform: translate(-50%, -50%);
     img {
       transform: rotate(90deg);
-      scale: 1.2;
+      height: 85vw;
     }
   }
 }
