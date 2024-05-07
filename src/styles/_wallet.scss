@@ -46,3 +46,19 @@
     }
   }
 }
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  gap: 3rem;
+  button {
+    box-shadow: none;
+  }
+
+  .receive {
+    button {
+      background-color: var(--black);
+      color: var(--purple-btn);
+    }
+  }
+}

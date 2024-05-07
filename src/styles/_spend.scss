@@ -1,0 +1,64 @@
+.spend {
+  button {
+    box-shadow: none;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+  .recents {
+    display: flex;
+    position: absolute;
+    background-color: #e9d5ff;
+    gap: 1rem;
+    right: -2rem;
+    width: 20rem;
+    top: 15rem;
+    height: 6.3rem;
+    border-radius: 3.2rem 0 0 3.2rem;
+    align-items: center;
+    padding-left: 1.5rem;
+    span {
+      position: absolute;
+      top: -2rem;
+      font-family: "inter", sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      opacity: 60%;
+      right: 10rem;
+      color: var(--purple);
+    }
+  }
+  form {
+    margin-top: 20rem;
+  }
+  .img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-size: cover;
+    display: inline-block;
+    opacity: 70%;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+
+  .image-input {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    margin-right: 20px; /* Adjust spacing between inputs */
+  }
+
+  .camera-input {
+    /* You can style the camera input if needed */
+  }
+}

@@ -76,6 +76,7 @@ span {
 a {
   text-decoration: none;
 }
+
 // Other styles
 @import "./button";
 @import "./input";
@@ -84,3 +85,4 @@ a {
 @import "./wallet";
 @import "./menu";
 @import "./withdrawal";
+@import "./spend";

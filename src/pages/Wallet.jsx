@@ -49,7 +49,9 @@ function Wallet() {
             </Link>
           </div>
           <div className="top-up">
-            <Button label="TOP UP" />
+            <Link to="/topup">
+              <Button label="TOP UP" />
+            </Link>
           </div>
           <div className="log-out">
             {" "}
@@ -65,9 +67,15 @@ function Wallet() {
       <h2 className="wallet_balance">NGN XXXX.XX</h2>
 
       <div className="buttons">
-        <Button label="SPEND" />
+        <Link to="/spend">
+          {" "}
+          <Button label="SPEND" />
+        </Link>
         <div className="receive">
-          <Button label="RECEIVE" />
+          <Link to="/receive">
+            {" "}
+            <Button label="RECEIVE" />
+          </Link>
         </div>
       </div>
     </div>

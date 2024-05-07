@@ -8,17 +8,45 @@ import Withdrawal from "./pages/Withdrawal";
 import Spend from "./pages/Spend";
 import Receive from "./pages/Receive";
 import { FaChevronLeft } from "react-icons/fa6";
+import Topup from "./pages/Topup";
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="app">
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         {" "}
         {location.pathname ==
           ("/withdrawal" || "/topup" || "/spend" || "/receive") && (
+          <FaChevronLeft
+            size="4rem"
+            color="var(--purple)"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+        )}
+        {location.pathname == "/receive" && (
+          <FaChevronLeft
+            size="4rem"
+            color="var(--purple)"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+        )}
+        {location.pathname == "/spend" && (
+          <FaChevronLeft
+            size="4rem"
+            color="var(--purple)"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+        )}
+        {location.pathname == "/topup" && (
           <FaChevronLeft
             size="4rem"
             color="var(--purple)"
@@ -38,8 +66,9 @@ function App() {
         <Route path="/withdrawal" element={<Withdrawal />} />
         <Route path="/spend" element={<Spend />} />
         <Route path="/receive" element={<Receive />} />
+        <Route path="/topup" element={<Topup />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
