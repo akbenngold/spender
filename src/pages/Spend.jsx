@@ -16,10 +16,12 @@ import { IoCloudUpload } from "react-icons/io5";
 import { IoCamera } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
 
+import { motion } from "framer-motion";
+
 function Spend() {
   const [step, setStep] = useState(1);
   const [notePick, setNotePick] = useState({ amount: "", url: "" });
-  const [noteNum, setNoteNum] = useState(0);
+  const [swiped, setSwiped] = useState(false);
 
   const nextStep = () => {
     setStep(step + 1);
@@ -33,8 +35,14 @@ function Spend() {
     setNotePick({ amount: e.target.alt, url: e.target.src });
   };
   const handlers = useSwipeable({
-    onSwiped: (eventData) => console.log("User Swiped!", eventData),
+    onSwipeStart: () => setSwiped(true),
+    onSwiping: () => {
+      setTimeout(() => {
+        setSwiped(false);
+      }, 1000);
+    },
   });
+
   {
     switch (step) {
       case 1:
@@ -156,8 +164,18 @@ function Spend() {
                 {" "}
                 <img src={notePick.url} alt="" />{" "}
               </div>
-              ;
             </div>
+            {swiped && (
+              <motion.div className="img" animate={{ top: "-40rem" }}>
+                <div
+                  {...handlers}
+                  style={{ boxShadow: " 0px 0px 50px 50px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {" "}
+                  <img src={notePick.url} alt="" />{" "}
+                </div>
+              </motion.div>
+            )}
             <div
               className="balance"
               style={{ position: "absolute", top: "1rem" }}
