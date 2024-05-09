@@ -107,6 +107,23 @@ a {
   }
 }
 
+.swipee {
+  animation: climb 5s;
+}
+@keyframes climb {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 90%;
+  }
+  70% {
+    opacity: 70%;
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
 // Other styles
 @import "./button";
 @import "./input";

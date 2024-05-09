@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../utilities/Button";
 import InputComponent from "../components/InputComponent";
 import person1 from "../assets/person1.jpg";
@@ -21,7 +21,8 @@ import { motion } from "framer-motion";
 function Spend() {
   const [step, setStep] = useState(1);
   const [notePick, setNotePick] = useState({ amount: "", url: "" });
-  const [swiped, setSwiped] = useState(false);
+
+  const [isSwiped, setIsSwiped] = useState(false);
 
   const nextStep = () => {
     setStep(step + 1);
@@ -34,14 +35,29 @@ function Spend() {
   const handleNotePick = (e) => {
     setNotePick({ amount: e.target.alt, url: e.target.src });
   };
-  const handlers = useSwipeable({
-    onSwipeStart: () => setSwiped(true),
-    onSwiping: () => {
+  // causing too many rerenders
+
+  const handleSwipeStart = (event) => {
+    event.preventDefault();
+    setIsSwiped(false);
+  };
+
+  const handleSwipeMove = (event) => {
+    event.preventDefault();
+  };
+
+  const handleSwipeEnd = (event) => {
+    const touch = event.changedTouches[0];
+    if (touch.clientX - touch.screenX > 50) {
+      setIsSwiped(true);
+      console.log("Swiped!");
+
       setTimeout(() => {
-        setSwiped(false);
-      }, 1000);
-    },
-  });
+        setIsSwiped(false);
+        console.log("State reset.");
+      }, 2000);
+    }
+  };
 
   {
     switch (step) {
@@ -160,22 +176,25 @@ function Spend() {
           <div className="spray">
             {" "}
             <div className="img">
-              <div {...handlers}>
+              <div
+                onTouchStart={handleSwipeStart}
+                onTouchMove={handleSwipeMove}
+                onTouchEnd={handleSwipeEnd}
+              >
                 {" "}
                 <img src={notePick.url} alt="" />{" "}
               </div>
             </div>
-            {swiped && (
+            {isSwiped ? (
               <motion.div className="img" animate={{ top: "-40rem" }}>
                 <div
-                  {...handlers}
                   style={{ boxShadow: " 0px 0px 50px 50px rgba(0, 0, 0, 0.5)" }}
                 >
                   {" "}
                   <img src={notePick.url} alt="" />{" "}
                 </div>
               </motion.div>
-            )}
+            ) : null}
             <div
               className="balance"
               style={{ position: "absolute", top: "1rem" }}
