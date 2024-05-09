@@ -20,7 +20,9 @@ import { motion } from "framer-motion";
 function Spend() {
   const [step, setStep] = useState(1);
   const [notePick, setNotePick] = useState({ amount: "", url: "" });
+  const [touchStart, setTouchStart] = useState(0);
 
+  const [touchEnd, setTouchEnd] = useState(0);
   const [isSwiped, setIsSwiped] = useState(false);
 
   const nextStep = () => {
@@ -34,19 +36,22 @@ function Spend() {
   const handleNotePick = (e) => {
     setNotePick({ amount: e.target.alt, url: e.target.src });
   };
-  // causing too many rerenders
 
   const handleSwipeStart = (event) => {
+    const touch = event.touches[0];
     setIsSwiped(false);
+    setTouchStart(touch.clientY);
   };
 
-  const handleSwipeMove = (event) => {};
+  const handleSwipeMove = (event) => {
+    const touch = event.touches[0];
+    setTouchEnd(touch.clientY);
+  };
 
   const handleSwipeEnd = (event) => {
-    const touch = event.changedTouches[0];
-    if (touch.clientX - touch.screenX > 50) {
+    if (touchStart - touchEnd > 50) {
       setIsSwiped(true);
-      console.log("Swiped!");
+      console.log("Swiped Up!");
 
       setTimeout(() => {
         setIsSwiped(false);
