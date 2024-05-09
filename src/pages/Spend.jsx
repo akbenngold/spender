@@ -10,7 +10,6 @@ import naira__1000 from "../assets/naira__1000.jpg";
 import naira__500 from "../assets/naira__500.jpg";
 import naira__200 from "../assets/naira__200.jpg";
 import naira__20 from "../assets/naira__20.jpg";
-import { useSwipeable } from "react-swipeable";
 import { IoCloudUpload } from "react-icons/io5";
 
 import { IoCamera } from "react-icons/io5";
@@ -38,13 +37,10 @@ function Spend() {
   // causing too many rerenders
 
   const handleSwipeStart = (event) => {
-    event.preventDefault();
     setIsSwiped(false);
   };
 
-  const handleSwipeMove = (event) => {
-    event.preventDefault();
-  };
+  const handleSwipeMove = (event) => {};
 
   const handleSwipeEnd = (event) => {
     const touch = event.changedTouches[0];
