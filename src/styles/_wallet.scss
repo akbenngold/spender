@@ -15,19 +15,6 @@
     backdrop-filter: blur(0.75rem); /* Apply blur effect */
     z-index: 1;
   }
-  .wallet_label {
-    margin-top: 10rem;
-    font-family: "Open sans", sans-serif;
-    font-size: 3.1rem;
-  }
-
-  .wallet_balance {
-    margin-top: -2rem;
-    font-family: "Open sans", sans-serif;
-    font-size: 5rem;
-    margin-top: 7rem;
-    margin-bottom: 15rem;
-  }
 
   .buttons {
     display: flex;
@@ -61,4 +48,17 @@
       color: var(--purple-btn);
     }
   }
+}
+.wallet_label {
+  margin-top: 10rem;
+  font-family: "Open sans", sans-serif;
+  font-size: 3.1rem;
+}
+
+.wallet_balance {
+  margin-top: -2rem;
+  font-family: "Open sans", sans-serif;
+  font-size: 5rem;
+  margin-top: 7rem;
+  margin-bottom: 15rem;
 }

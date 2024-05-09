@@ -76,6 +76,36 @@ span {
 a {
   text-decoration: none;
 }
+.middle {
+  margin-top: 34rem;
+  margin-left: 2.5rem;
+}
+
+.confetti {
+  animation: fall 5s;
+
+  left: -14rem;
+  img {
+    transform: rotate(90deg);
+    height: 85vw;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 90%;
+  }
+  70% {
+    opacity: 70%;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0%;
+  }
+}
 
 // Other styles
 @import "./button";
