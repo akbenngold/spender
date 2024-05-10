@@ -9,7 +9,6 @@ import Spend from "./pages/Spend";
 import Receive from "./pages/Receive";
 import { FaChevronLeft } from "react-icons/fa6";
 import Topup from "./pages/Topup";
-import { useState } from "react";
 
 function App() {
   const location = useLocation();
@@ -21,8 +20,8 @@ function App() {
       style={{
         overflow: "hidden",
         position: "relative",
-        height: "100vh",
-        width: "100vw",
+        height: "98vh",
+        width: "90vw",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
