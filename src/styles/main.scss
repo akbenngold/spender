@@ -83,12 +83,15 @@ a {
 
 .confetti {
   animation: fall 5s;
-  position: absolute;
+  // position: relative;
   z-index: 200;
-  left: -32vw;
+
   img {
-    transform: rotate(90deg);
     height: 85vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
   }
 }
 
@@ -135,9 +138,11 @@ a {
 }
 
 .receivebal {
-  font-family: "Open sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 5rem;
   position: absolute;
+  z-index: -2;
+  white-space: nowrap; /* Prevent text wrapping */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
