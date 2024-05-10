@@ -10,7 +10,7 @@ import naira__20 from "../assets/naira__20.jpg";
 
 function Receive() {
   const [blur, setBlur] = useState(false);
-  const [receive, setReceive] = useState(true);
+  const [receive, setReceive] = useState(false);
 
   const handleBlur = () => {
     setBlur(!blur);
@@ -21,7 +21,7 @@ function Receive() {
     if (receive) {
       timeout = setTimeout(() => {
         setReceive(false);
-      }, 5000); // 5 seconds
+      }, 5000);
     }
     return () => clearTimeout(timeout);
   }, [receive]);
@@ -43,13 +43,14 @@ function Receive() {
         onClick={() => {
           setReceive(true);
         }}
+        style={{ position: "absolute" }}
       >
         CONG
       </button>
       <Background />
       <div className="middle">
         <h2
-          className="wallet_balance"
+          className=" receivebal"
           style={blur ? { filter: "blur(2rem)" } : null}
           onClick={handleBlur}
         >

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Button from "../utilities/Button";
-import InputComponent from "../components/InputComponent";
 import person1 from "../assets/person1.jpg";
 import person2 from "../assets/person2.jpg";
 import person3 from "../assets/person3.jpg";
@@ -11,19 +10,23 @@ import naira__500 from "../assets/naira__500.jpg";
 import naira__200 from "../assets/naira__200.jpg";
 import naira__20 from "../assets/naira__20.jpg";
 import { IoCloudUpload } from "react-icons/io5";
-
 import { IoCamera } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
-
+import { style } from "./modules";
 import { motion } from "framer-motion";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
 
 function Spend() {
   const [step, setStep] = useState(1);
   const [notePick, setNotePick] = useState({ amount: "", url: "" });
   const [touchStart, setTouchStart] = useState(0);
-
   const [touchEnd, setTouchEnd] = useState(0);
   const [isSwiped, setIsSwiped] = useState(false);
+  const [formData, setFormData] = useState({
+    recipientNumber: "",
+    senderNickname: "",
+  });
 
   const nextStep = () => {
     setStep(step + 1);
@@ -59,7 +62,19 @@ function Spend() {
       }, 2000);
     }
   };
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can perform any validation here before proceeding to the next step
+    console.log(formData);
+    nextStep();
+  };
   {
     switch (step) {
       case 1:
@@ -80,9 +95,35 @@ function Spend() {
                 style={{ backgroundImage: `url("${person3}")` }}
               ></div>
             </div>
-            <form action="">
-              <InputComponent label="Enter Recipient's Number" phone={true} />
-              <InputComponent label="Enter Sender's Nickname" user={true} />
+            <form onSubmit={handleSubmit}>
+              <div className="input">
+                <label htmlFor="recipientNumber">Recipient's Number</label>{" "}
+                <input
+                  type="tel"
+                  id="recipientNumber"
+                  name="recipientNumber"
+                  className="input-text"
+                  value={formData.recipientNumber}
+                  onChange={handleChange}
+                />
+                <FaPhoneAlt
+                  size="2rem"
+                  color="var(--purple-dark)"
+                  style={style}
+                />
+              </div>
+              <div className="input">
+                <label htmlFor="senderNickname">Sender's Nickname</label>{" "}
+                <input
+                  type="text"
+                  id="senderNickname"
+                  name="senderNickname"
+                  className="input-text"
+                  value={formData.senderNickname}
+                  onChange={handleChange}
+                />
+                <FaUser size="2rem" color="var(--purple-dark)" style={style} />
+              </div>{" "}
               <div>
                 <label htmlFor="">Add an Image (Optional)</label>{" "}
                 <div
@@ -125,17 +166,17 @@ function Spend() {
                     </label>
                   </div>
                 </div>
+              </div>{" "}
+              <div
+                // onClick={nextStep}
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                }}
+              >
+                <Button label="NEXT" type="submit" />
               </div>
             </form>
-            <div
-              onClick={nextStep}
-              style={{
-                display: "flex",
-                justifyContent: "end",
-              }}
-            >
-              <Button label="NEXT" />
-            </div>
           </div>
         );
       case 2:
