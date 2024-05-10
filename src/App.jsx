@@ -16,7 +16,15 @@ function App() {
   const navigate = useNavigate();
 
   return (
-    <div className="app">
+    <div
+      className="app"
+      style={{
+        overflow: "hidden",
+        position: "relative",
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         {" "}
         {location.pathname ==

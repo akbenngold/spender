@@ -33,6 +33,7 @@ body {
   height: 80vh;
   padding: 1rem 2rem 2rem 2rem;
   background-color: var(--purple-bg);
+  overflow: hidden;
 }
 
 h1 {
@@ -85,7 +86,7 @@ a {
   animation: fall 5s;
   position: absolute;
   z-index: 200;
-  left: -14rem;
+  left: -32vw;
   img {
     transform: rotate(90deg);
     height: 85vw;
@@ -94,7 +95,7 @@ a {
 
 @keyframes fall {
   0% {
-    transform: translateY(0);
+    transform: translateY(-50vh);
   }
   50% {
     opacity: 90%;
@@ -135,12 +136,12 @@ a {
 }
 
 .receivebal {
+  font-family: "Open sans", sans-serif;
+  font-size: 5rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Open sans", sans-serif;
-  font-size: 5rem;
 }
 // Other styles
 @import "./button";
