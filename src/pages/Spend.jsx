@@ -16,6 +16,7 @@ import { style } from "./modules";
 import { motion } from "framer-motion";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
+import { UserConsumer } from "../context/UserContext";
 
 function Spend() {
   const [step, setStep] = useState(1);
@@ -181,42 +182,56 @@ function Spend() {
         );
       case 2:
         return (
-          <div className="withdrawal select-notes">
-            <div className="balance">
-              NGN XXXX{" "}
-              <div style={{ borderLeft: "1px solid black", padding: "1rem" }}>
-                <IoMdAdd />
-              </div>
-            </div>
-            <form
-              action=""
-              style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
-              className="notes"
-            >
-              <img src={naira__20} alt="20" onClick={handleNotePick} />
-              <img src={naira__50} alt="50" onClick={handleNotePick} />
-              <img src={naira__100} alt="100" onClick={handleNotePick} />
-              <img src={naira__200} alt="200" onClick={handleNotePick} />
-              <img src={naira__500} alt="500" onClick={handleNotePick} />
-              <img src={naira__1000} alt="1000" onClick={handleNotePick} />
-            </form>
+          <UserConsumer>
+            {(userbalance) => {
+              return (
+                <div className="withdrawal select-notes">
+                  <div className="balance">
+                    NGN {userbalance}
+                    <div
+                      style={{ borderLeft: "1px solid black", padding: "1rem" }}
+                    >
+                      <IoMdAdd />
+                    </div>
+                  </div>
+                  <form
+                    action=""
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(2, 1fr)",
+                    }}
+                    className="notes"
+                  >
+                    <img src={naira__20} alt="20" onClick={handleNotePick} />
+                    <img src={naira__50} alt="50" onClick={handleNotePick} />
+                    <img src={naira__100} alt="100" onClick={handleNotePick} />
+                    <img src={naira__200} alt="200" onClick={handleNotePick} />
+                    <img src={naira__500} alt="500" onClick={handleNotePick} />
+                    <img
+                      src={naira__1000}
+                      alt="1000"
+                      onClick={handleNotePick}
+                    />
+                  </form>
 
-            {notePick.amount && <p>You picked {notePick.amount}</p>}
-            <div className="buttons">
-              {" "}
-              <div onClick={prevStep} className="receive">
-                <Button label="BACK" />
-              </div>
-              <div onClick={nextStep}>
-                <Button label="SPEND" />
-              </div>
-            </div>
-          </div>
+                  {notePick.amount && <p>You picked {notePick.amount}</p>}
+                  <div className="buttons">
+                    {" "}
+                    <div onClick={prevStep} className="receive">
+                      <Button label="BACK" />
+                    </div>
+                    <div onClick={nextStep}>
+                      <Button label="SPEND" />
+                    </div>
+                  </div>
+                </div>
+              );
+            }}
+          </UserConsumer>
         );
       case 3:
         return (
           <div className="spray">
-            {" "}
             <div className="img">
               <div
                 onTouchStart={handleSwipeStart}
@@ -230,7 +245,9 @@ function Spend() {
             {isSwiped ? (
               <motion.div className="img" animate={{ top: "-40rem" }}>
                 <div
-                  style={{ boxShadow: " 0px 0px 50px 50px rgba(0, 0, 0, 0.5)" }}
+                  style={{
+                    boxShadow: " 0px 0px 50px 50px rgba(0, 0, 0, 0.5)",
+                  }}
                 >
                   {" "}
                   <img src={notePick.url} alt="" />{" "}
@@ -241,7 +258,7 @@ function Spend() {
               className="balance"
               style={{ position: "absolute", top: "1rem" }}
             >
-              NGN XXXX{" "}
+              NGNXXXX
               <div style={{ borderLeft: "1px solid black", padding: "1rem" }}>
                 <IoMdAdd />
               </div>

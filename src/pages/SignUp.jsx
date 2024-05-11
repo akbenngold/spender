@@ -128,7 +128,7 @@ function Signup() {
         <div style={divStyle}>
           <Button label="SIGN UP" type="submit" />
         </div>
-        <p style={{ textAlign: "center" }}>
+        <p style={{ textAlign: "center", marginTop: "-2rem" }}>
           Already have an account?{" "}
           <Link to="/signin">
             <span>Sign in </span>

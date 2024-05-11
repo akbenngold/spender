@@ -9,6 +9,7 @@ import Spend from "./pages/Spend";
 import Receive from "./pages/Receive";
 import { FaChevronLeft } from "react-icons/fa6";
 import Topup from "./pages/Topup";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   const location = useLocation();
@@ -65,17 +66,18 @@ function App() {
         )}{" "}
         <h1>Spender</h1>
       </div>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/wallet" element={<Wallet />} />
-        <Route path="/withdrawal" element={<Withdrawal />} />
-        <Route path="/spend" element={<Spend />} />
-        <Route path="/receive" element={<Receive />} />
-        <Route path="/topup" element={<Topup />} />
-      </Routes>
+      <UserProvider value={1000}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/withdrawal" element={<Withdrawal />} />
+          <Route path="/spend" element={<Spend />} />
+          <Route path="/receive" element={<Receive />} />
+          <Route path="/topup" element={<Topup />} />
+        </Routes>
+      </UserProvider>
     </div>
   );
 }
